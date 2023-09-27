@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation | Welcome</title>
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <style>
+    #modal-image {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
   </head>
   <body>
 
@@ -252,11 +258,29 @@
         </div>
       </div>
     </div>
+    <div class="reveal" id="exampleModal1" data-reveal>
+      <img id="modal-image" src="https://placehold.it/250x250" alt="Zoomed Image">
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script>
       $(document).foundation();
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $('.thumbnail').click(function(){
+        var imgSrc = $(this).attr('src');
+        $('#modal-image').attr('src', imgSrc);
+        var modal = new Foundation.Reveal($('#exampleModal1'));
+        modal.open();
+    });
+});
     </script>
   </body>
 </html>
