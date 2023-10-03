@@ -294,9 +294,14 @@
 });
     </script>
     <script>
-      document.querySelector('#exampleModal1').addEventListener('click', function() {
-  dataLayer.push({'event': 'cta_click'});
-});
+      // event dataLayer push with similar event parameters.
+      document.querySelector('.thumbnail').addEventListener('click', function() {
+        dataLayer.push({'event': 'cta_click', 'e_click_cta': 'thumbnail'});
+      });
+    document.querySelector('li > a').addEventListener('click', function() {
+      dataLayer.push({'event': 'footer_click' 'e_click_cta': 'anchor of the link'});
+    });
+      
     </script>
   </body>
 </html>
