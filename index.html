@@ -253,18 +253,18 @@
         </div>
         <div class="large-3 large-offset-2 columns">
           <ul class="menu vertical">
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
-            <li><a href="#">Four</a></li>
+            <li><a href="#" onClick="trackFooterClick()">One</a></li>
+            <li><a href="#" onClick="trackFooterClick()">Two</a></li>
+            <li><a href="#" onClick="trackFooterClick()">Three</a></li>
+            <li><a href="#" onClick="trackFooterClick()">Four</a></li>
           </ul>
         </div>
         <div class="large-3 columns">
           <ul class="menu vertical">
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
-            <li><a href="#">Four</a></li>
+            <li><a href="#" onClick="trackFooterClick()">One</a></li>
+            <li><a href="#" onClick="trackFooterClick()" >Two</a></li>
+            <li><a href="#" onClick="trackFooterClick()">Three</a></li>
+            <li><a href="#" onClick="trackFooterClick()">Four</a></li>
           </ul>
         </div>
       </div>
@@ -289,19 +289,26 @@
         var imgSrc = $(this).attr('src');
         $('#modal-image').attr('src', imgSrc);
         var modal = new Foundation.Reveal($('#exampleModal1'));
+        trackModalClick();
         modal.open();
     });
 });
-    </script>
-    <script>
-      // event dataLayer push with similar event parameters.
-      document.querySelector('.thumbnail').addEventListener('click', function() {
-        dataLayer.push({'event': 'cta_click', 'e_click_cta': 'thumbnail'});
-      });
-    document.querySelector('a').addEventListener('click', function() {
-      dataLayer.push({'event': 'footer_click' 'e_click_cta': 'anchor of the link'});
-    });
-      
+
+function trackModalClick() {
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({
+    'event': 'cta_click',
+    'e_click_cta': 'thumbnail'
+  });
+}
+
+function trackFooterClick() {
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({
+    'event': 'footer_click',
+    'e_click_cta': 'anchor of the link'
+  });
+}
     </script>
   </body>
 </html>
